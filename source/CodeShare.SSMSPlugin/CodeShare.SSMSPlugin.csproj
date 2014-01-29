@@ -24,7 +24,8 @@
     <WarningLevel>4</WarningLevel>
     <IncrementalBuild>false</IncrementalBuild>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>CodeShare.SSMSPlugin.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -56,6 +57,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
@@ -63,6 +65,10 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Command\CategoryToolCommand.cs" />
+    <Compile Include="Common\Plugin\CommandBase.cs" />
+    <Compile Include="Common\Plugin\MenuManager.cs" />
+    <Compile Include="Common\Plugin\PluginManager.cs" />
     <Compile Include="Common\Plugin\WindowManager.cs" />
     <Compile Include="Connect.cs">
       <SubType>Code</SubType>
@@ -95,6 +101,7 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
     </COMReference>
     <COMReference Include="EnvDTE90">
       <Guid>{2CE2370E-D744-4936-A090-3FFFE667B0E1}</Guid>
@@ -129,7 +136,12 @@
     <None Include="readme.md" />
     <None Include="unregeister_codeshare.reg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CodeShare.UI\CodeShare.UI.csproj">
+      <Project>{b7ea2afd-7f82-4035-a6e4-794976ea2dae}</Project>
+      <Name>CodeShare.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>
     <PreBuildEvent>

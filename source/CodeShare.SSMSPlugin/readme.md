@@ -21,6 +21,21 @@ Register
         >>>   1.    add key named "{namespace.class}", for example "CodeShare.SSMSPlugin.Connect"
         >>>   2.    add dword "LoadBehavior" set value "1"
 
+Add Reference
+-------------------------------
+There are two places to look for SSMS assemblies:
+C:\Program Files\Microsoft SQL Server\100\SDK\Assemblies\
+C:\Program Files\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE
+
+Add dll:
+
+SqlWorkbench.Interfaces.dll
+Microsoft.SqlServer.SqlTools.VSIntegration.dll
+
+You might need more depend on what you do in your add-in
+
+
+
 Chage Code
 -------------------------------
 1.  change "_applicationObject = (DTE2)application;" to "_applicationObject = (DTE2)ServiceCache.ExtensibilityModel;"

@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{2B34B5DF-352
 	ProjectSection(SolutionItems) = preProject
 		Lib\Community.CsharpSqlite.dll = Lib\Community.CsharpSqlite.dll
 		Lib\Community.CsharpSqlite.SQLiteClient.dll = Lib\Community.CsharpSqlite.SQLiteClient.dll
+		Lib\log4net.dll = Lib\log4net.dll
 		Lib\Microsoft.SqlServer.SqlTools.VSIntegration.dll = Lib\Microsoft.SqlServer.SqlTools.VSIntegration.dll
 		Lib\SqlWorkbench.Interfaces.dll = Lib\SqlWorkbench.Interfaces.dll
 	EndProjectSection

@@ -4,6 +4,151 @@
         <name>CodeShare.SSMSPlugin</name>
     </assembly>
     <members>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.#ctor(EnvDTE80.DTE2,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CommandBase"/> class.
+            </summary>
+            <param name="application">The application.</param>
+            <param name="caption">The caption code.</param>
+            <param name="tooltipText">The tooltip text code.</param>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.Perform">
+            <summary>
+            Performs this instance.
+            </summary>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.writeReadOW(System.String,System.String)">
+            <summary>
+            输出到 OutputWindow
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="P:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.Application">
+            <summary>
+            Gets or sets the application.
+            </summary>
+            <value>The application.</value>
+        </member>
+        <member name="P:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.Id">
+            <summary>
+            Gets the id.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.Caption">
+            <summary>
+            Gets or sets the caption.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:CodeShare.SSMSPlugin.Common.Plugin.CommandBase.TooltipText">
+            <summary>
+            Gets or sets the tooltip text.
+            </summary>
+            <value>The tooltip text.</value>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.CommandFactory.Create(System.String,EnvDTE80.DTE2)">
+            <summary>
+            Creates the specified command.
+            </summary>
+            <param name="name">The id.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CodeShare.SSMSPlugin.Common.Plugin.MenuManager">
+            <summary>
+            Add menu or command
+            </summary>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.#ctor(EnvDTE80.DTE2)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MenuManager"/> class.
+            </summary>
+            <param name="application">The application.</param>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.CreatePopupMenu(System.String,System.String)">
+            <summary>
+            Creates the popup menu.
+            </summary>
+            <param name="commandBarName">Name of the command bar.</param>
+            <param name="menuName">Name of the menu.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.CreatePopupMenu(Microsoft.VisualStudio.CommandBars.CommandBarPopup,System.String,System.Int32)">
+            <summary>
+            Creates the popup menu.
+            </summary>
+            <param name="popupMenu">The popup menu.</param>
+            <param name="subPopupMenuName">Name of the sub popup menu.</param>
+            <param name="position">The position.</param>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.CreateMenu(System.String,CodeShare.SSMSPlugin.Common.Plugin.CommandBase)">
+            <summary>
+            Creates the menu.
+            </summary>
+            <param name="commandBarName">Name of the command bar.</param>
+            <param name="menuName">Name of the menu.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.CreateMenu(System.String,CodeShare.SSMSPlugin.Common.Plugin.CommandBase,System.Int32)">
+            <summary>
+            Creates the menu.
+            </summary>
+            <param name="commandBarName">Name of the command bar.</param>
+            <param name="cmd"></param>
+            <param name="position">添加位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.GetCommandBar(System.String)">
+            <summary>
+            Gets the command bar.
+            </summary>
+            <param name="commandBarName">Name of the command bar.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.AddCommandMenu(Microsoft.VisualStudio.CommandBars.CommandBarPopup,CodeShare.SSMSPlugin.Common.Plugin.CommandBase,System.Int32)">
+            <summary>
+            Adds the command.
+            </summary>
+            <param name="menu">The popup menu.</param>
+            <param name="cmd">The command.</param>
+            <param name="position">The position in the menu.</param>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.AddMenuItem(Microsoft.VisualStudio.CommandBars.CommandBarPopup,CodeShare.SSMSPlugin.Common.Plugin.CommandBase,System.Int32)">
+            <summary>
+            Add the menu item to the popup menu
+            </summary>
+            <param name="menu">The menu.</param>
+            <param name="cmd">The CMD.</param>
+            <param name="position">The position.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.AddClickEventHandler(Microsoft.VisualStudio.CommandBars.CommandBarControl)">
+            <summary>
+            Adds handler to the menu item click event.
+            </summary>
+            <param name="menuItem">The menu item.</param>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.AddCommandToList(CodeShare.SSMSPlugin.Common.Plugin.CommandBase)">
+            <summary>
+            Adds the command to list.
+            </summary>
+            <param name="cmd">The CMD.</param>
+        </member>
+        <member name="M:CodeShare.SSMSPlugin.Common.Plugin.MenuManager.MenuItem_Click(System.Object,System.Boolean@,System.Boolean@)">
+            <summary>
+            Handles the click on the menu item
+            </summary>
+            <param name="commandBarControl">The command bar control.</param>
+            <param name="handled">if set to <c>true</c> [handled].</param>
+            <param name="cancelDefault">if set to <c>true</c> [cancel default].</param>
+        </member>
         <member name="T:CodeShare.SSMSPlugin.Connect">
             <summary>The object for implementing an Add-in.</summary>
             <seealso class='IDTExtensibility2' />

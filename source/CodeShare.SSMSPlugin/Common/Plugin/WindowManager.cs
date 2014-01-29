@@ -14,25 +14,38 @@ namespace CodeShare.SSMSPlugin.Common.Plugin
         private DTE2 _applicationObject;
         private AddIn _addInInstance;
 
-        public void CreateAddinWindow(string fullClassName)
+        public WindowManager(DTE2 _applicationObject, AddIn _addInInstance)
         {
-            Guid id = new Guid("4c410c93-d66b-495a-9de2-99d5bde4a3b9"); // this guid doesn't seem to matter?
-
-            Assembly asm = Assembly.GetExecutingAssembly();
-            //toolWindow = CreateToolWindow("iucon.ssms.QuickFind.SearchToolWindow", asm.Location, id, addinInstance);
+            this._applicationObject =_applicationObject;
+            this._addInInstance = _addInInstance;
         }
 
-        private Window CreateToolWindow(string typeName, string assemblyLocation, Guid uiTypeGuid, AddIn addinInstance)
+        public Window CreateAddinWindow<T>(string caption)
+            where T : class
         {
+            return this.CreateAddinWindow<T>(caption, Guid.NewGuid());
+        }
+
+        public Window CreateAddinWindow<T>(string caption, Guid id)
+            where T : class
+        {
+            return CreateToolWindow<T>(caption, id, _addInInstance);
+        }
+
+        public Window CreateToolWindow<T>(string caption, Guid uiTypeGuid, AddIn addinInstance)
+            where T : class
+        {
+            Type type = typeof(T);
+
             Windows2 win2 = _applicationObject.Windows as Windows2;
             if (win2 != null)
             {
                 object controlObject = null;
-                Assembly asm = Assembly.GetExecutingAssembly();
-                Window toolWindow = win2.CreateToolWindow2(addinInstance, assemblyLocation, typeName, "QuickFind", "{" + uiTypeGuid.ToString() + "}", ref controlObject);
+                Window toolWindow = win2.CreateToolWindow2(addinInstance, type.Assembly.Location, type.FullName, caption, "{" + uiTypeGuid.ToString() + "}", ref controlObject);
                 toolWindow.Visible = true;
                 return toolWindow;
             }
+
             return null;
         }
     }
